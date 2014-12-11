@@ -1,0 +1,19 @@
+{
+  "name": "xpl-email",
+  "version": "0.1.0",
+  "description": "Node JS layer to send email through xPL",
+  "main": "./lib/xpl-email.js",
+  "dependencies": {
+    "xpl-api": "~1.0.12",
+    "emailjs": "~0.3.12",
+    "fs": "~0.0.2"
+  },
+  "keywords": [
+    "XPL","nodejs","emailjs"
+  ],
+  "repository": { "type": "git", "url": "https://github.com/wiseflat/xpl-email.git" },
+  "author": "Mathieu Garcia",
+  "license": "GPL",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/wiseflat/xpl-email"
+}
