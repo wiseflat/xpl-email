@@ -1,6 +1,6 @@
 var xplemail = require("./lib/xpl-email");
 
-var wt = new xplprowl(null, {
+var wt = new xplemail(null, {
 	xplSource: 'bnz-email.wiseflat'
 });
 
