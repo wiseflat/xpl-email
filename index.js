@@ -11,7 +11,7 @@ wt._init(function(error, xpl) {
 		return;
 	}
         
-        //wt.setLocalConfig();
+        wt.getLocalConfig();
         
         xpl.on("xpl:email.basic", function(evt) {
 		console.log("Receive message ", evt);
