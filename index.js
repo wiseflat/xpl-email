@@ -20,7 +20,7 @@ wt._init(function(error, xpl) {
         
         xpl.on("xpl:email.config", function(evt) {
 		console.log("Receive message email.config ", evt);
-                if(evt.headerName == 'xpl-cmnd' && wt.validEmailConfigSchema(evt.body)) wt.setConfig(evt.body);
+                if(evt.headerName == 'xpl-cmnd' && wt.validEmailConfigSchema(evt.body)) wt.writeConfig(evt.body);
         }); 
 
         xpl.on("xpl:email.request", function(evt) {
