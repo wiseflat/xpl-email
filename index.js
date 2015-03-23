@@ -1,7 +1,9 @@
 var xplemail = require("./lib/xpl-email");
+var schema_emailbasic = require('/etc/wiseflat/schemas/email.basic.json');
 
 var wt = new xplemail(null, {
-	//xplSource: 'bnz-email.wiseflat'
+	xplLog: false,
+        forceBodySchemaValidation: false
 });
 
 wt.init(function(error, xpl) {
@@ -11,6 +13,8 @@ wt.init(function(error, xpl) {
 		return;
 	}
         
+	xpl.addBodySchema(schema_emailbasic.id, schema_emailbasic.definitions.body);
+	
         // Load config file into hash
         wt.readConfig();
         
