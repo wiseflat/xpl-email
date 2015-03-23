@@ -24,6 +24,7 @@ wt.init(function(error, xpl) {
         });
         
         xpl.on("xpl:email.basic", function(evt) {
+		console.log(evt);
                 if(evt.headerName == 'xpl-cmnd' && wt.validBasicSchema(evt.body)) wt.sendEmail(evt.body);
         }); 
         
