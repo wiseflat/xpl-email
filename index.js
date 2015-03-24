@@ -1,5 +1,6 @@
 var xplemail = require("./lib/xpl-email");
 var schema_emailbasic = require('/etc/wiseflat/schemas/email.basic.json');
+var schema_emailconfig = require('/etc/wiseflat/schemas/email.config.json');
 
 var wt = new xplemail(null, {
 	xplLog: false,
@@ -14,6 +15,7 @@ wt.init(function(error, xpl) {
 	}
         
 	xpl.addBodySchema(schema_emailbasic.id, schema_emailbasic.definitions.body);
+	xpl.addBodySchema(schema_emailconfig.id, schema_emailconfig.definitions.body);
 	
         // Load config file into hash
         wt.readConfig();
@@ -21,6 +23,7 @@ wt.init(function(error, xpl) {
         // Send every minutes an xPL status message 
         setInterval(function(){
                 wt.sendConfig();
+		wt.sendBasic();
         }, 60 * 1000);
         
         xpl.on("xpl:email.request", function(evt) {
@@ -29,12 +32,14 @@ wt.init(function(error, xpl) {
         
         xpl.on("xpl:email.basic", function(evt) {
 		console.log(evt);
-                if(evt.headerName == 'xpl-cmnd' && wt.validBasicSchema(evt.body)) wt.sendEmail(evt.body);
+                //if(evt.headerName == 'xpl-cmnd' && wt.validBasicSchema(evt.body)) wt.sendEmail(evt.body);
+		if(evt.headerName == 'xpl-cmnd') wt.sendEmail(evt.body);
         }); 
         
         xpl.on("xpl:email.config", function(evt) {
 		console.log("Receive message email.config ", evt);
-                if(evt.headerName == 'xpl-cmnd' && wt.validConfigSchema(evt.body)) wt.writeConfig(evt.body);
+                //if(evt.headerName == 'xpl-cmnd' && wt.validConfigSchema(evt.body)) wt.writeConfig(evt.body);
+		if(evt.headerName == 'xpl-cmnd') wt.writeConfig(evt.body);
         });
 });
 
