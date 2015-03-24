@@ -23,7 +23,7 @@ wt.init(function(error, xpl) {
         // Send every minutes an xPL status message 
         setInterval(function(){
                 wt.sendConfig();
-		wt.sendBasic();
+		//wt.sendBasic();
         }, 60 * 1000);
         
         xpl.on("xpl:email.request", function(evt) {
