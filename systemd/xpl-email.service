@@ -1,0 +1,12 @@
+[Unit]
+Description=Wiseflat xPL email daemon
+After=networking.service
+After=xpl-hub.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/node /opt/xpl-email/index.js
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
