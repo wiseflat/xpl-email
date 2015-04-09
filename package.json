@@ -4,7 +4,7 @@
   "description": "Node JS layer to send email through xPL",
   "main": "./lib/xpl-email.js",
   "dependencies": {
-    "xpl-api": "Nodejs-XPL/xpl-api",
+    "xpl-api": "git://github.com/Nodejs-XPL/xpl-api.git#process_target",
     "emailjs": "~0.3.12",
     "fs": "~0.0.2"
   },
