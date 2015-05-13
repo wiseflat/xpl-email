@@ -1,6 +1,6 @@
 {
   "name": "xpl-email",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Node JS layer to send email through xPL",
   "main": "./lib/xpl-email.js",
   "dependencies": {
